@@ -1,17 +1,15 @@
-import { useEffect, useRef } from "react";
 import s from "./Canvas.module.scss";
-import scene from "../../../webgl/Scene";
+import scene from "../../webgl/Scene";
+import { useEffect, useRef } from "react";
 
-function Canvas() {
-
-    const canavasRef = useRef();
+const Canvas = () => {
+    const canvasRef = useRef();
 
     useEffect(() => {
-        scene.setup(canavasRef, current);
-    }, [])
-    return (
-        <canvas></canvas>
-    )
-}
+        scene.setup(canvasRef.current);
+    }, []);
 
-export default Canvas
+    return <canvas ref={canvasRef}></canvas>;
+};
+
+export default Canvas;
